@@ -1,4 +1,5 @@
-body {
+body,
+html {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -7,8 +8,8 @@ body {
 /*variables con colores*/
 :root {
   --background: rgb(255, 255, 255);
-  --background-linear1: rgba(255, 255, 255, 1);
-  --background-linear2: rgba(255, 235, 130, 1);
+  --background-linear1: #ffe000;
+  --background-linear2: #c6d400;
   --container: #353535;
   --text-color: white;
   --screen: #353535;
@@ -29,11 +30,11 @@ span {
     var(--background-linear1) 0%,
     var(--background-linear2) 70%
   );
-  height: 100vh;
-  width: 100;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: 100%;
 }
 
 .c-time {
@@ -70,12 +71,27 @@ span {
   font-size: 50px;
 }
 
-/* cuando el usuario interactúa con un elemento con un dispositivo señalador, 
-pero no necesariamente lo activa. Generalmente se activa cuando el usuario se 
-desplaza sobre un elemento con el cursor */
 button:hover {
   transform: scale(1.2);
   transition: 0.5s;
   background-color: var(--btn-hover);
   color: var(--btn-hover-text);
+}
+
+@media screen and (width: 412px) {
+  span {
+    font-size: 60px;
+  }
+  .c-time {
+    width: 400px;
+  }
+  .c-time > .screen {
+    margin: 25px;
+  }
+  .c-btn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+    margin: 15px 50px;
+  }
 }
